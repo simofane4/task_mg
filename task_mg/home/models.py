@@ -26,7 +26,9 @@ class Project(models.Model):
 class ListTaskBoard(models.Model):
     project = models.ForeignKey(Profile, on_delete=models.CASCADE)
     status = models.CharField(max_length=255)
-    color=models.CharField(max_length=255 ,choices=[('green','green'),('blue','blue')])
+    color=models.CharField(max_length=255 ,choices=[('orange','board-primary'),('green','board-success')
+                                                    ,('blue','board-info'),('purple','board-purple')
+                                                    ,('yellow','board-warning'),('red','board-danger')])
 
 
 
@@ -34,8 +36,12 @@ class Task(models.Model):
     project=models.ForeignKey(Project, on_delete=models.CASCADE)
     status = models.OneToOneField(ListTaskBoard,on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
-    progressbar = models.CharField(max_length=255 ) # khassni les  choid de progrestion %
-    value = models.CharField( max_length=50)
+    progressbar = models.CharField(max_length=255 ,choices=[("10%","10%"),("20%","20%"),
+                                                            ("30%","30%"),("40%","40%"),
+                                                            ("50%","50%"),("60%","60%"),
+                                                            ("70%","70%"),("80%","80%"),
+                                                            ("90%","90%"),("100%","100%")] ) # khassni les  choid de progrestion %
+    value = models.CharField( max_length=50, choices=[("high","high"),("low","low"),("normal","normal")])
     date = models.DateField(auto_now=True)
     discreption = models.TextField(max_length=1000)
     
