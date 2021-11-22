@@ -327,18 +327,33 @@ $(document).ready(function() {
 	});
 	
 	if($('.kanban-wrap').length > 0) {
+		console.log('aaa');
 		$(".kanban-wrap").sortable({
 			connectWith: ".kanban-wrap",
 			handle: ".kanban-box",
-			placeholder: "drag-placeholder"
+			placeholder: "drag-placeholder",
+			
 		});
+		
 	}
 
 });
 
-// Loader
+       // $("#winston").draggable();kanban-wrap
+	   $(".kanban-box").droppable({
+		drop: function(event, ui) {
+			//var parent = event.target.parentElement;
+			//console.log('parent',ui);
+			console.log('element',event.target);
+		}
+	});
 
+// Loader
 $(window).on ('load', function (){
 	$('#loader').delay(100).fadeOut('slow');
 	$('#loader-wrapper').delay(500).fadeOut('slow');
 });
+
+
+
+

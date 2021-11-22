@@ -1,5 +1,5 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -8,7 +8,7 @@
 		<meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
         <meta name="author" content="Dreamguys - Bootstrap Admin Template">
         <meta name="robots" content="noindex, nofollow">
-        <title>Blank Page - HRMS admin template</title>
+        <title>Login - HRMS admin template</title>
 		
 		<!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.png' %}">
@@ -19,15 +19,8 @@
 		<!-- Fontawesome CSS -->
         <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
 		
-		<!-- Lineawesome CSS -->
-        <link rel="stylesheet" href="{% static 'assets/css/line-awesome.min.css' %}">
-		
-		{% block style %}
-		{% endblock style %}
 		<!-- Main CSS -->
         <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
-
-		
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -35,53 +28,57 @@
 			<script src="{% static 'assets/js/respond.min.js' %}"></script>
 		<![endif]-->
     </head>
-    <body>
+    <body class="account-page">
+	
 		<!-- Main Wrapper -->
         <div class="main-wrapper">
-		
-			<!-- Header -->
-            {% include 'header.html' %}
-			<!-- /Header -->
-			
-			<!-- Sidebar -->
-            {% include 'sidebar.html' %}
-			<!-- /Sidebar -->
-			
-			<!-- Page Wrapper -->
-            <div class="page-wrapper">
-			
-				<!-- Page Content -->
-                <div class="content container-fluid">
+			<div class="account-content">
+				<a href="job-list.html" class="btn btn-primary apply-btn">Apply Job</a>
+				<div class="container">
+				
+					<!-- Account Logo -->
+					<div class="account-logo">
+						<a href="index.html"><img src="{% static 'assets/img/logo2.png' %}" alt="Dreamguy's Technologies"></a>
+					</div>
+					<!-- /Account Logo -->
 					
-					<!-- Page Header -->
-					<div class="page-header">
-						<div class="row">
-							<div class="col-sm-12">
-								<h3 class="page-title">{{title}}</h3>
-								<ul class="breadcrumb">
-									<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-									<li class="breadcrumb-item active"> {{title}} </li>
-								</ul>
-							</div>
-							{% block head_content %}
-							{% endblock head_content %}
+					<div class="account-box">
+						<div class="account-wrapper">
+							<h3 class="account-title">Login</h3>
+							<p class="account-subtitle">Access to our dashboard</p>
+							
+							<!-- Account Form -->
+							<form action="index.html">
+								<div class="form-group">
+									<label>Email Address</label>
+									<input class="form-control" type="text">
+								</div>
+								<div class="form-group">
+									<div class="row">
+										<div class="col">
+											<label>Password</label>
+										</div>
+										<div class="col-auto">
+											<a class="text-muted" href="forgot-password.html">
+												Forgot password?
+											</a>
+										</div>
+									</div>
+									<input class="form-control" type="password">
+								</div>
+								<div class="form-group text-center">
+									<button class="btn btn-primary account-btn" type="submit">Login</button>
+								</div>
+								<div class="account-footer">
+									<p>Don't have an account yet? <a href="register.html">Register</a></p>
+								</div>
+							</form>
+							<!-- /Account Form -->
+							
 						</div>
 					</div>
-					<!-- /Page Header -->
-					
-					<!-- Content Starts -->
-						{% block content %}
-
-
-						{% endblock content %}						
-					<!-- /Content End -->
-					
-                </div>
-				<!-- /Page Content -->
-				
-            </div>
-			<!-- /Page Wrapper -->
-			
+				</div>
+			</div>
         </div>
 		<!-- /Main Wrapper -->
 		
@@ -92,13 +89,8 @@
         <script src="{% static 'assets/js/popper.min.js' %}"></script>
         <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
 		
-		<!-- Slimscroll JS -->
-		<script src="{% static 'assets/js/jquery.slimscroll.min.js' %}"></script>
-		{% block js %}
-		{% endblock js %}
 		<!-- Custom JS -->
 		<script src="{% static 'assets/js/app.js' %}"></script>
-		
 		
     </body>
 </html>
